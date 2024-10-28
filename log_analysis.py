@@ -16,18 +16,18 @@ def susactivity (logs): #returns any weird activity
 
 def createsummary (failedlogins, unauthaccess): #creates a summary using the data above
    
-   summary: {
-    "tfailedlogins": len(failedlogins)
-    "tunauthaccess": len(unauthaccess)
+   summary= {
+    "tfailedlogins": len(failedlogins),
+    "tunauthaccess": len(unauthaccess),
 
-    "tfailedlogins_perhour": failedlogins["datetime"].dt.hour.value_counts()
+    "tfailedlogins_perhour": failedlogins["datetime"].dt.hour.value_counts(),
     "tunauthaccess_perhour": unauthaccess["datetime"].dt.hour.value_counts()
    }
 
    return summary
 
 def main(): #combines the functions before to create a report
-    logfilepath: "whatever file we need to read"
+    logfilepath= "whatever file we need to read"
     logs = readlogs("logfilepath")
 
     if logs is not None: #had to search this term one up
