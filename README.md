@@ -12,3 +12,8 @@ Notsafe Consulting is honored to bring you a coordinated and comprehensive solut
 ### Automatic alerts
 
 ## Automated security checks
+
+### Traffic monitoring
+Uses Python library scapy to monitor network traffic. Detects unknown IP addresses, high volume traffic, and suspicious traffic spikes.
+
+### Vulnerability Scans
