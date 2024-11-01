@@ -32,7 +32,7 @@ def mock_packets():
     return packets
 
 def main():
-    packet_capture = mock_packets()
+    packet_capture = scapy.sniff()
 
     # Packet counts
     packet_counts = len(packet_capture)
