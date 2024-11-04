@@ -5,7 +5,6 @@ import datetime
 
 alertLog = open('AlertLogs.txt', 'w')
 
-print('Timestamp: {:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()))
 def alertGenerator(path_to_log):
     log = log_analysis.readlogs(path_to_log)
     failedlogins, unauthaccess = log_analysis.susactivity(log)
