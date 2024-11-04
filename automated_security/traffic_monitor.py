@@ -2,6 +2,10 @@ import scapy #pip install scapy
 from scapy.all import IP, Ether
 from collections import defaultdict #pip install collections
 
+import schedule #pip install schedule
+import time
+import logging
+
 white_list_IPS = [
     "127.0.0.1",
     "123.45.67.89"
@@ -31,7 +35,7 @@ def mock_packets():
 
     return packets
 
-def main():
+def scan():
     packet_capture = scapy.sniff()
 
     # Packet counts
@@ -62,16 +66,17 @@ def main():
     # Find spikes
     spikes = find_spikes(sorted_traffic)
     if spikes:
-        print("Spikes detected at the following timestamps:")
+        logging.warning("Spikes detected at the following timestamps:")
         for spike in spikes:
-            print(spike)
+            logging.warning(spike)
 
     for ip in source_ips:
         if source_ips[ip] > traffic_threshold and ip not in white_list_IPS:
-            print(f"High traffic volume detected from {ip}")
+            logging.warning(f"High traffic volume detected from {ip}")
     for ip in destination_ips:
         if destination_ips[ip] > traffic_threshold and ip not in white_list_IPS:
-            print(f"High traffic volume detected to {ip}")
+            logging.warning(f"High traffic volume detected to {ip}")
+
 
 
 def find_spikes(sorted_traffic):
@@ -93,8 +98,16 @@ def find_spikes(sorted_traffic):
     
     return spikes
         
-    
 
+def main():
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - {levelname} - %(message)s",
+    )
+    schedule.every().hour.do(scan)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
 
 if __name__ == "__main__":
     main()
