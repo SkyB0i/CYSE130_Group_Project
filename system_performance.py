@@ -1,5 +1,5 @@
 import psutil 
-from smtplib import SMTP
+from smtplib import SMTP, SMTPException
 from email.mime.text import MIMEText
 import time
 from datetime import datetime
@@ -35,12 +35,12 @@ def send_alert(message): # method to send alert
 
     try: # uses smtp to send email
 
-        with smtplib.SMTP(smtpserver, port) as server:
+        with SMTP(smtpserver, port) as server:
             server.starttls()
             server.login(user, reciever, msg.as_string())
             print("Alert sent")
 
-    except smtplib.SMTPException as e:
+    except SMTPException as e:
         print("Alert failed to send")
 
 
