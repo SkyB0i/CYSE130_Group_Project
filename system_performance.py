@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 import time
 from datetime import datetime
 
-# percentage thersholds for usage
+# percentage thresholds for usage
 
 cpu_thresh = 90
 memory_thresh = 80
@@ -12,23 +12,31 @@ disk_thresh = 90
 alert_length = 120 # seconds
 interval_length = 10 # every 10 seconds
 
-log = '_______'
+log = 'system_performance.log' #path for logging
+
+# asks user for SMTP credentials
+
+port = int(input("Enter the SMTP port (likely 587): "))
+server = input("Enter SMTP server: ")
+user = input("Enter your email address: ")
+password = input("Enter your email's password: ")
+reciever = input("Enter the reciever's email address: ")
 
 cpu_alert = None
 memory_alert = None
 disk_alert = None
 
-def send_alert(message): # method to send alert, wip 
+def send_alert(message): # method to send alert
 
     msg = MIMEText(message)
     msg["Subject"] = "System performance alert"
-    msg["From"] = ______ # not sure what to put here and underneath, i think i need to do something with smtp?
-    msg["To"] = ______
+    msg["From"] = user
+    msg["To"] = reciever
 
 def log_performance(cpu_use, memory_use, disk_use): #creates log entry of performance
 
     timestamp = datetime.now.strftime("%Y-%m-%d %H:%M:%S") # timestamp to the second for log
-    log_entry = f"{timestamp} -- CPU: {cpu_use}%, Memory: {memory_use}%, Disk: {disk_use}%" # log entry format (idk if there's a specific format to follow)
+    log_entry = f"{timestamp} -- CPU: {cpu_use}%, Memory: {memory_use}%, Disk: {disk_use}%" # log entry format 
 
     with open(log, 'a') as log_file: #a creates if not created already and appends if already created
         log_file.write(log_entry) 
@@ -37,7 +45,7 @@ def system (): #monitors system
     global cpu_alert, memory_alert, disk_alert #sets variables to be editable in func
 
     while True:
-        cpu_use = psutil.cpu_percent(interval=1) #checks every sec
+        cpu_use = psutil.cpu_percent(interval=1) #checks every second
         memory_use = psutil.virtual_memory().percent
         disk_use = psutil.disk_usage("/").percent
 
