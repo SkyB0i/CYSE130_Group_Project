@@ -17,7 +17,7 @@ log = 'system_performance.log' #path for logging
 # asks user for SMTP credentials
 
 port = int(input("Enter the SMTP port (likely 587): "))
-server = input("Enter SMTP server: ")
+smtpserver = input("Enter SMTP server: ")
 user = input("Enter your email address: ")
 password = input("Enter your email's password: ")
 reciever = input("Enter the reciever's email address: ")
@@ -32,6 +32,17 @@ def send_alert(message): # method to send alert
     msg["Subject"] = "System performance alert"
     msg["From"] = user
     msg["To"] = reciever
+
+    try: # uses smtp to send email
+
+        with smtplib.SMTP(smtpserver, port) as server:
+            server.starttls()
+            server.login(user, reciever, msg.as_string())
+            print("Alert sent")
+
+    except smtplib.SMTPException as e:
+        print("Alert failed to send")
+
 
 def log_performance(cpu_use, memory_use, disk_use): #creates log entry of performance
 
