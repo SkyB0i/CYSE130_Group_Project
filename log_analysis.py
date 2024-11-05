@@ -31,7 +31,7 @@ def main(): #combines the functions before to create a report
     logs = readlogs("logfilepath")
 
     if logs is not None: #had to search this term one up
-        susactivity(logs) = failedlogins, unauthaccess
+        failedlogins, unauthaccess = susactivity(logs)
         summary = createsummary(failedlogins, unauthaccess)
 
         print("Summary report: ")
