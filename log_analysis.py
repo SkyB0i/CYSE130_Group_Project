@@ -27,16 +27,11 @@ def createsummary (failedlogins, unauthaccess): #creates a summary using the dat
    return summary
 
 def main(): #combines the previous to create a report
-    logfilepath= "whatever file we need to read"
+    logfilepath = "insert_file_here"
     logs = readlogs("logfilepath")
 
-<<<<<<< Updated upstream
-    if logs is not None: #had to search this term one up
-        failedlogins, unauthaccess = susactivity(logs)
-=======
     if logs is not None: 
         susactivity(logs) = failedlogins, unauthaccess
->>>>>>> Stashed changes
         summary = createsummary(failedlogins, unauthaccess)
 
         print("Summary report: ")
