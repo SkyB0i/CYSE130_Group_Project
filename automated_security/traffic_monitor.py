@@ -100,7 +100,10 @@ def find_spikes(sorted_traffic):
         
 
 def main():
+    logname = "traffic_monitor.log"
     logging.basicConfig(
+        filename=logname,
+        filemode="a",
         level=logging.INFO,
         format="%(asctime)s - {levelname} - %(message)s",
     )
