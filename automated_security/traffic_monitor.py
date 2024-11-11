@@ -10,6 +10,11 @@ white_list_IPS = [
     "127.0.0.1",
     "123.45.67.89"
 ]
+black_list_IPS = [
+    "293.45.67.89",
+    "420.69.69.69"
+]
+
 traffic_threshold = 1000
 
 
@@ -73,10 +78,13 @@ def scan():
     for ip in source_ips:
         if source_ips[ip] > traffic_threshold and ip not in white_list_IPS:
             logging.warning(f"High traffic volume detected from {ip}")
+        if ip in black_list_IPS:
+            logging.warning(f"Blacklisted IP detected: {ip}")
     for ip in destination_ips:
         if destination_ips[ip] > traffic_threshold and ip not in white_list_IPS:
             logging.warning(f"High traffic volume detected to {ip}")
-
+        if ip in black_list_IPS:
+            logging.warning(f"Blacklisted IP detected: {ip}")
 
 
 def find_spikes(sorted_traffic):
