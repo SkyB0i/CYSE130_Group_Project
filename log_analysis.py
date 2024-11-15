@@ -1,5 +1,14 @@
 import pandas as pd
 
+def test_logs(filepath):
+    with open(filepath, 'w') as f:
+        f.write("2021-01-01 12:00:00 123.45.67.89 login failed\n")
+        f.write("2021-01-01 12:01:00 321.54.76.98 access unauthorized\n")
+        f.write("2021-01-01 12:02:00 432.65.87.09 login succeeded\n")
+        f.write("2021-01-01 12:03:00 543.76.98.10 access unauthorized\n")
+        f.write("2021-01-01 12:04:00 654.87.09.21 login failed\n")
+        f.write("2021-01-01 12:05:00 765.98.10.32 access unauthorized\n")
+
 def readlogs (file_path): #reads the log files
 
     logs = pd.read_csv(file_path, delimiter = " ", header = None, headings = ["date", "time", "ip", "event", "status"])
@@ -28,6 +37,7 @@ def createsummary (failedlogins, unauthaccess): #creates a summary using the dat
 
 def main(): #combines the previous to create a report
     logfilepath = "insert_file_here"
+    test_logs(logfilepath)
     logs = readlogs("logfilepath")
 
     if logs is not None: 
@@ -35,11 +45,11 @@ def main(): #combines the previous to create a report
         summary = createsummary(failedlogins, unauthaccess)
 
         print("Summary report: ")
-        print("Total failed logins: " (summary["tfailedlogins"]))
-        print("Total attempts at unauthorized access: " (summary["tunauthaccess"]))
+        print("Total failed logins: " + summary["tfailedlogins"])
+        print("Total attempts at unauthorized access: " + summary["tunauthaccess"])
 
-        print("Failed logins per hour: " (summary["tfailedlogins_perhour"]))
-        print("Failed unauthorized access per hour: " (summary["tunauthaccess_perhour"]))
+        print("Failed logins per hour: " + summary["tfailedlogins_perhour"])
+        print("Failed unauthorized access per hour: " + summary["tunauthaccess_perhour"])
 
 
 main()
