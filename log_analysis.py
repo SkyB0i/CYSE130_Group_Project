@@ -46,10 +46,10 @@ def main(): #combines the previous to create a report
         summary = createsummary(failedlogins, unauthaccess)
 
         print("Summary report: ")
-        print("Total failed logins: " + len(summary["tfailedlogins"]))
+        print("Total failed logins: " + str(summary["tfailedlogins"]))
         print("Total attempts at unauthorized access: " + summary["tunauthaccess"])
 
-        print("Failed logins per hour: " + len(summary["tfailedlogins_perhour"]))
+        print("Failed logins per hour: " + str(summary["tfailedlogins_perhour"]))
         print("Failed unauthorized access per hour: " + summary["tunauthaccess_perhour"])
 
 
