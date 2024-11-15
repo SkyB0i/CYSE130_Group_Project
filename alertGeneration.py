@@ -26,5 +26,5 @@ def alertGenerator(path_to_log):
     if ram_memory >= 90:
          alertLog.write('{:%Y-%m-%d %H:%M:%S} [RESOURCE ALERT] Excessive RAM use detected.'.format(datetime.datetime.now()))
 
-path_to_log = "logpath"
-alertGenerator(path_to_log)
+testfilepath = "AlertGenerationTestLogs.txt"
+alertGenerator(testfilepath)
