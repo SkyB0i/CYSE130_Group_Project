@@ -1,9 +1,16 @@
-from system_performance import cpu_percentage
-from system_performance import ram_memory
 import log_analysis
 import datetime
 
 alertLog = open('AlertLogs.txt', 'w')
+
+def read_performance_logs(path_to_log):
+     with open(path_to_log, 'r') as log:
+          log_data = log.readlines()
+          recent = log_data[-1].split(" ")
+          cpu = float(recent[4].strip('%,')) * 100
+          ram = float(recent[6].strip('%,')) * 100
+          return cpu, ram
+
 
 def alertGenerator(path_to_log):
     log = log_analysis.readlogs(path_to_log)
@@ -13,6 +20,8 @@ def alertGenerator(path_to_log):
 
     failed_logins = logSummary["tfailedlogins"]
     unauthorized_access = logSummary["tunauthaccess"]
+
+    cpu_percentage, ram_memory = read_performance_logs("system_performance.log")
 
     if failed_logins >= 5:
         alertLog.write('{:%Y-%m-%d %H:%M:%S} [SECURITY ALERT] Excessive failed login attempts detected.'.format(datetime.datetime.now()))
