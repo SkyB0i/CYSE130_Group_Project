@@ -1,0 +1,17 @@
+2024-11-11 10:41:27,958 - {levelname} - Scanning the Following Address:10.151.216.142
+2024-11-11 10:41:34,768 - {levelname} - Port: 135
+2024-11-11 10:41:34,768 - {levelname} - State: open
+2024-11-11 10:41:34,768 - {levelname} - Port: 139
+2024-11-11 10:41:34,768 - {levelname} - State: open
+2024-11-11 10:41:34,768 - {levelname} - Port: 445
+2024-11-11 10:41:34,768 - {levelname} - State: open
+2024-11-11 10:42:19,692 - {levelname} - Scanning the Following Address:10.151.216.142
+2024-11-11 10:42:26,544 - {levelname} - Host:	10.151.216.142
+2024-11-11 10:42:26,544 - {levelname} - State:	up
+2024-11-11 10:42:26,544 - {levelname} - Protocol:	tcp
+2024-11-11 10:42:26,553 - {levelname} - Port:	135
+2024-11-11 10:42:26,554 - {levelname} - State:	open
+2024-11-11 10:42:26,554 - {levelname} - Port:	139
+2024-11-11 10:42:26,554 - {levelname} - State:	open
+2024-11-11 10:42:26,554 - {levelname} - Port:	445
+2024-11-11 10:42:26,554 - {levelname} - State:	open

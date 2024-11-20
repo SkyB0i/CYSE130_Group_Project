@@ -29,7 +29,7 @@ def vuln_scan():
                 logging.info("State:\t%s", scanner[host][proto][port]["state"])
     
 def main():
-    logname = "vuln_scan.log"
+    logname = "logs/vuln_scan.log"
     logging.basicConfig(
         filename=logname,
         filemode="a",

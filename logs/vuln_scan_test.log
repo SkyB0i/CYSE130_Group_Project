@@ -1,0 +1,10 @@
+2024-11-15 11:05:46,086 - (levelname) - Scanning the Following Address:10.151.211.193
+2024-11-15 11:05:52,485 - (levelname) - Host:	10.151.211.193
+2024-11-15 11:05:52,485 - (levelname) - State:	up
+2024-11-15 11:05:52,485 - (levelname) - Protocol:	tcp
+2024-11-15 11:05:52,485 - (levelname) - Port:	135
+2024-11-15 11:05:52,486 - (levelname) - State:	open
+2024-11-15 11:05:52,486 - (levelname) - Port:	139
+2024-11-15 11:05:52,486 - (levelname) - State:	open
+2024-11-15 11:05:52,486 - (levelname) - Port:	445
+2024-11-15 11:05:52,486 - (levelname) - State:	open

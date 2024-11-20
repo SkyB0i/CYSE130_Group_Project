@@ -1,0 +1,2 @@
+2024-11-16 11:39:52 [SECURITY ALERT] Excessive unauthorized access attempts detected.
+2024-11-16 11:39:52 [RESOURCE ALERT] Excessive RAM use detected.
