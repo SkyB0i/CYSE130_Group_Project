@@ -1,0 +1,5 @@
+pandas==2.2.3
+psutil==6.1.0
+python_nmap==0.7.1
+scapy==2.6.0
+schedule==1.2.2
