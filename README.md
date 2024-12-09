@@ -11,6 +11,7 @@ Notsafe Consulting is honored to bring you a coordinated and comprehensive solut
 ## Tutorial
 Once all files have been installed, run them to begin. This will begin regularly monitoring your system. You will then receive notifications about incidents at the email you specified when you run the programs.
 
+## Components
 ### Log file analysis
 log_analysis.py reads the log files from alertGeneration.py and creates a summary of any suspicious activity found within.
 ### System performance analysis
@@ -28,3 +29,11 @@ traffic_monitor.py uses Python library scapy to monitor network traffic. Detects
 
 #### Vulnerability Scans
 vuln_scan.py uses nmap to scan open ports on the host and logs the states of the ports. Should be run on company servers, desktops, and laptops. This program logs files but produces no alert messages.
+
+## Team Members
+* Felix Visger - Project Manager
+* Tasmiya Firdous - Python Developer
+* Elijah Garn - Python Developer
+* Noah Hinger - Systems Modeler
+* Zeke Hudson - Data Analyst
+* Larissa Nogueira - Systems Modeler
