@@ -20,7 +20,7 @@ cpu_alert = None
 memory_alert = None
 disk_alert = None
 
-global port, smtpserver, user, password,reciever
+global port, smtpserver, user, password, reciever
 
 def send_alert(message): # method to send alert
     # pass

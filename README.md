@@ -2,13 +2,14 @@
 # Notsafe Consulting
 Notsafe Consulting is honored to bring you a coordinated and comprehensive solution to your security needs.
 
-## Installation and Guide
+## Installation and Tutorial
 ### Setup
 #### Install requirements:
 `pip install -r requirements.txt`
 #### Locations
 `vuln_scan.py`, `log_analysis.py`, `AlertGeneration.py`, and `system_performance.py` should all be installed on end user devices. `traffic_monitor.py` should be installed on a router where it has access to network traffic.
-
+## Tutorial
+Once all files have been installed, run them to begin. This will begin regularly monitoring your system. You will then receive notifications about incidents at the email you specified when you run the programs.
 
 ### Log file analysis
 log_analysis.py reads the log files from alertGeneration.py and creates a summary of any suspicious activity found within.
